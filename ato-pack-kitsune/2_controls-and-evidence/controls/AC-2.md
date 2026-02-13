@@ -4,11 +4,12 @@
 Kitsune manages user and admin accounts through a defined process to ensure only authorized individuals have appropriate access.
 
 ## Implementation
-- **What:** User and admin accounts are created, modified, and disabled through a documented request/approval workflow.
-- **How:** Access is granted based on role, reviewed on a scheduled cadence, and removed promptly upon separation or role change.
-- **Where:** Identity management occurs in the fictional IdP and is enforced by the web application.
-- **Who:** System Owner approves role-based access; ISSO verifies evidence; Admins implement changes.
-- **When / cadence:** Access reviews monthly; account disablement within a defined timeframe (fictional SLA).
+- **What:** The system defines allowed vs. prohibited account types (e.g., allowed: individual user, privileged admin, auditor, service/DTA/L-DTA; prohibited by default: shared/group, anonymous, guest, temporary/emergency unless explicitly approved with conditions). 
+- **How:** Accounts are requested, approved, provisioned, modified, disabled, and removed via a documented workflow with prerequisites for role/group membership (e.g., training, need-to-know, ticket/justification).
+- **Where:** Central identity lifecycle is managed in the fictional IdP and enforced by the web application (role/attribute checks at authentication/authorization).
+- **Who:** System Owner approves account creation and privileged role assignments; Account Managers/Admins execute changes; ISSO validates evidence and reviews compliance.
+- **When / Cadence:** Accounts are reviewed at least annually (recommend quarterly for privileged/admin); accounts are disabled when no longer required, upon termination/transfer, policy violation, or inactivity.
+- **Monitoring / Auditability** Accounts are reviewed at least annually (recommend quarterly for privileged/admin); accounts are disabled when no longer required, upon termination/transfer, policy violation, or inactivity (your 35-day rule fits here if documented).
 
 ## Evidence
 - `../evidence/account-management-sample/access-review_{DATE}.md`
