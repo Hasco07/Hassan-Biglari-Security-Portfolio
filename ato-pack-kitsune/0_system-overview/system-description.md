@@ -6,7 +6,7 @@
 **Data sensitivity:** Replace with your fictional sensitivity labels (e.g., CUI-like, internal-only)
 
 ## Purpose (1–2 paragraphs)
-Write what Kitsune does in plain English. Keep it realistic and short.
+Kitsune is an isolated local area network (LAN) used to develop, integrate, and test software that supports classified jet programs. It provides a controlled environment where engineers can build and validate code without exposing sensitive data or connecting to external networks. The LAN is designed to mirror key aspects of the target aircraft/mission systems stack so teams can run builds, execute automated tests, and troubleshoot issues early. 
 
 ## Users / Roles
 - End users:
