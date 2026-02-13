@@ -1,58 +1,47 @@
-# Boundary Diagram (Mermaid)
 
-Mermaid renders directly on GitHub. This diagram is **fictional** and shows boundary clarity (what is in/out).
+Why this will render: the code fence is correct, and the diagram syntax is clean.
+
+---
+
+# 2) Replace `0_system-overview/data-flow-diagram.md` (same formatting bug)
+
+Copy/paste this entire file:
+
+```md
+# Data Flow Diagram (Mermaid)
+
+This diagram focuses on the **development → build → test → logging** flow inside an isolated LAN.
 
 ```mermaid
-flowchart LR
-  classDef blocked fill:#f7d7d7,stroke:#b55,stroke-width:1px,color:#000;
+sequenceDiagram
+  autonumber
+  participant Dev as Developer
+  participant WS as Dev Workstation
+  participant IdP as Directory/IdP
+  participant Git as Source Control
+  participant CI as Build/CI Server
+  participant Test as Test Harness
+  participant SIEM as Central Logging / SIEM
+  participant Scan as Vulnerability Scanner
+  participant ISSO as ISSO / Compliance
 
-  subgraph LAN["Kitsune LAN (Air‑Gapped / Offline)"]
-    direction LR
+  Dev->>WS: Develop code (offline)
+  WS->>IdP: Authenticate (user)
+  WS->>Git: Commit / push changes
+  Git->>SIEM: Record repo audit logs
 
-    subgraph UZ["User Zone"]
-      DevWS["Developer Workstations"]
-    end
+  CI->>IdP: Authenticate (service account)
+  CI->>Git: Pull source
+  CI->>CI: Build package
+  CI->>Test: Deploy build + run automated tests
+  Test-->>CI: Return test results
+  CI->>SIEM: Forward build/test logs
 
-    subgraph AZ["Admin Zone"]
-      AdminWS["Admin Workstations"]
-    end
+  Note over Scan,ISSO: Continuous Monitoring (example cadence)
+  Scan->>WS: Scheduled scan (sample)
+  Scan->>Git: Scheduled scan
+  Scan->>CI: Scheduled scan
+  Scan->>SIEM: Forward scan summaries
 
-    subgraph SZ["Server Zone"]
-      IdP["Directory Services / IdP"]
-      Git["Source Control Server"]
-      CI["Build / CI Server"]
-      Art["Artifact Repository"]
-      Test["Test Harness / Simulator"]
-    end
-
-    subgraph ST["Security Tooling"]
-      SIEM["Central Logging / SIEM"]
-      Scanner["Vulnerability Scanner"]
-    end
-
-    DevWS -->|Authenticate| IdP
-    AdminWS -->|Privileged auth| IdP
-
-    DevWS -->|Commit / Fetch| Git
-    CI -->|Fetch source| Git
-    CI -->|Store build outputs| Art
-    CI -->|Execute tests| Test
-
-    Git -->|Forward logs| SIEM
-    CI -->|Forward logs| SIEM
-    Art -->|Forward logs| SIEM
-    Test -->|Forward logs| SIEM
-    IdP -->|Auth/audit logs| SIEM
-
-    Scanner -->|Scan (scheduled)| DevWS
-    Scanner -->|Scan (scheduled)| Git
-    Scanner -->|Scan (scheduled)| CI
-    Scanner -->|Scan (scheduled)| Art
-    Scanner -->|Scan (scheduled)| Test
-  end
-
-  Media["Controlled Media Transfer Point (Fictional)"]
-  Ext["External Networks / Internet"]:::blocked
-
-  Media -. "Approved import/export only" .-> LAN
-  LAN -. "No direct connectivity" .-> Ext
+  ISSO->>SIEM: Review alerts/logs
+  ISSO->>ISSO: Create/update POA&M entries (fictional)
