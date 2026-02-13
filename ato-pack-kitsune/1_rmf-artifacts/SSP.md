@@ -3,15 +3,15 @@
 > This is a public-safe SSP-style document. Use it to demonstrate structure, clarity, and evidence traceability.
 
 ## 1. System Identification
-- System Name:
-- System Owner:
-- Authorizing Official (fictional):
-- System Type:
-- System Categorization (fictional):
+- System Name: IS 2096 Kitsune
+- System Owner: Hassan Biglari
+- Authorizing Official (fictional): DCSA
+- System Type: Local Area Network (LAN)
+- System Categorization (fictional): M-L-L
 
 ## 2. System Environment
 ### 2.1 System Purpose
-(Plain English purpose)
+Kitsune is an isolated local network (LAN) used to develop, integrate, and test software that supports classified jet programs. It provides a controlled environment where engineers can build and validate code without exposing sensitive data or connecting to external networks. The LAN is designed to mirror key aspects of the target aircraft/mission systems stack so teams can run builds, execute automated tests, and troubleshoot issues early.
 
 ### 2.2 System Boundary
 - Included components:
