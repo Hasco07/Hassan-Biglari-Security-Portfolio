@@ -3,7 +3,7 @@
 **Cleared security professional (TS) | RMF/JSIG | Audit & inspection readiness | STIG hardening | eMASS | Splunk**
 
 ## 30-second summary
-I’m an Information System Security Manager (ISSM) with hands-on experience executing the full ATO lifecycle for classified systems—SSP development, control implementation, evidence collection, assessor coordination, POA&M management, and continuous monitoring. I’ve led ISSO teams and built repeatable processes that keep programs inspection-ready, reduce rework, and improve evidence quality.
+I’m an Information System Security Manager (ISSM) with hands-on experience executing the full ATO lifecycle for classified systems: SSP development, control implementation, evidence collection, assessor coordination, POA&M management, and continuous monitoring. I’ve led ISSO teams and built repeatable processes that keep programs inspection-ready, reduce rework, and improve evidence quality.
 
 My focus: **mission-aligned cybersecurity compliance that actually holds up under assessment**.
 
