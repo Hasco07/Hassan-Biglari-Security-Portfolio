@@ -65,4 +65,5 @@ Everything here is **fictionalized/sanitized** to respect OPSEC and confidential
 
 ## Contact
 - Email: hassan.biglari16@gmail.com
+- Phone: 314-891-5270
 - Location: St. Louis, MO (open to Japan relocation)
